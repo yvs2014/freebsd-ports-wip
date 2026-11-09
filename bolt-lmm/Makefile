@@ -1,5 +1,5 @@
 PORTNAME=	bolt-lmm
-DISTVERSION=	2.3.6
+DISTVERSION=	2.5
 CATEGORIES=	wip biology
 MASTER_SITES=	https://data.broadinstitute.org/alkesgroup/BOLT-LMM/downloads/
 DISTNAME=	BOLT-LMM_v${PORTVERSION}
@@ -13,7 +13,8 @@ LICENSE_FILE=	${WRKSRC}/license.txt
 
 LIB_DEPENDS=	libnlopt.so:math/nlopt \
 		libopenblas.so:math/openblas \
-		libboost_program_options.so:devel/boost-libs
+		libboost_program_options.so:devel/boost-libs \
+		libzstd.so:archivers/zstd
 
 USES=		gmake
 
@@ -21,8 +22,6 @@ BUILD_WRKSRC=		${WRKDIR}/${DISTNAME}/src
 INSTALL_WRKSRC=		${WRKDIR}/${DISTNAME}/src
 CXXFLAGS_i386=		-DUSE_SSE -msse -msse2
 CXXFLAGS_amd64=		-DUSE_SSE
-CXXFLAGS_powerpc64=	-DNO_WARN_X86_INTRINSICS -mvsx
-CXXFLAGS_powerpc64le=	-DNO_WARN_X86_INTRINSICS -mvsx
 MAKE_ARGS=		BOOST_INSTALL_DIR=${LOCALBASE} \
 			NLOPT_INSTALL_DIR=${LOCALBASE} \
 			ZLIB_STATIC_DIR=/usr/lib \

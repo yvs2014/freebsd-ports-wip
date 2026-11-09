@@ -1,6 +1,6 @@
 PORTNAME=	wip-tools
-DISTVERSION=	0.4.2-34
-DISTVERSIONSUFFIX=	-ga360e44
+DISTVERSION=	0.4.2-37
+DISTVERSIONSUFFIX=	-g6d617d3
 CATEGORIES=	wip ports-mgmt
 
 MAINTAINER=	jwb@FreeBSD.org
@@ -8,6 +8,8 @@ COMMENT=	Update ports tree with work-in-progress ports
 WWW=		https://github.com/outpaddling/freebsd-ports-wip
 
 LICENSE=	BSD3CLAUSE
+
+RUN_DEPENDS=	auto-admin>0:wip/auto-admin
 
 USES=		tar:xz
 USE_GITHUB=	yes
